@@ -2,7 +2,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: jhooq-springboot
-  namespace: kube-ingress
 spec:
   replicas: 3
   selector:
@@ -15,7 +14,7 @@ spec:
     spec:
       containers:
         - name: springboot
-          image: jcginerdockerhub/cicd-sample
+          image: rahulwagh17/jhooq-docker-demo:jhooq-docker-demo
           ports:
             - containerPort: 8080
           env:
@@ -26,7 +25,6 @@ apiVersion: v1
 kind: Service
 metadata:
   name: jhooq-springboot
-  namespace: kube-ingress
 spec:
   type: LoadBalancer
   ports:
